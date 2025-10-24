@@ -671,9 +671,8 @@ const ProductForm = () => {
                       <hr />
                       <h6>
                         {t("Variant")}:{" "}
-                        {`${variant.color ? variant.color : ""} ${
-                          variant.color && variant.attr ? "+" : ""
-                        } ${variant.attr ? variant.attr : ""}`}
+                        {`${variant.color ? variant.color : ""} ${variant.color && variant.attr ? "+" : ""
+                          } ${variant.attr ? variant.attr : ""}`}
                       </h6>
                       <div className="row">
                         <div className="col-12 col-md-3">
