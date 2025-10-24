@@ -14,6 +14,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
+import GroupManagement from "./ProductTabCreate/GroupManagement";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function ProductFormCreate() {
@@ -45,7 +46,11 @@ export default function ProductFormCreate() {
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <ArrowBackIcon sx={{ cursor: "pointer" }} />
           <Typography variant="h6" fontWeight={700}>
-            1번 그룹
+
+            {tabValue === 0 && "1번 그룹"}
+            {tabValue === 1 && " 20만원"}
+            {tabValue === 2 && " 20만원"}
+            {tabValue === 3 && " 20만원"}
           </Typography>
         </Box>
 
@@ -58,7 +63,10 @@ export default function ProductFormCreate() {
             "&:hover": { backgroundColor: "#e0e0e0" },
           }}
         >
-          수정하기
+          {tabValue === 0 && "수정하기"}
+          {tabValue === 1 && "+ 새 상품 등록"}
+          {tabValue === 2 && "수정하기"}
+          {tabValue === 3 && "수정하기"}
         </Button>
       </Box>
 
@@ -141,7 +149,7 @@ export default function ProductFormCreate() {
         )}
 
         {tabValue === 1 && (
-          <Typography sx={{ mt: 3 }}>그룹 관리 탭 내용 (sẽ bổ sung sau)</Typography>
+          <GroupManagement />
         )}
         {tabValue === 2 && (
           <Typography sx={{ mt: 3 }}>순위 관리 탭 내용 (sẽ bổ sung sau)</Typography>
