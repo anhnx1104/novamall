@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+}
+.item * {
+  transition: 0.4s all;
+}
+.item:hover .colorName {
+  color: var(--primary);
+}
+
+.colorBox {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border_color);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+.colorBox svg {
+  position: absolute;
+}
+.colorName {
+  color: #656565;
+  font-weight: 400;
+}
+.colorBox:hover {
+  transform: scale(1.1);
+}
+
+.selected {
+  border: 2px solid #007bff;
+}

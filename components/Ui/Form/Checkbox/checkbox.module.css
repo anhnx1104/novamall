@@ -1,0 +1,38 @@
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.checkboxContainer:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.checkboxContainer.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkboxIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkboxIcon svg {
+  width: 100%;
+  height: 100%;
+}
+.checkboxLabel {
+  font-size: 14px;
+  color: var(--text-121212);
+}

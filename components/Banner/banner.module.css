@@ -1,0 +1,90 @@
+.banner {
+  width: 100%;
+  padding: 21px;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+.bannerContainer {
+  display: flex;
+  align-items: center;
+}
+.bannerContainer .bg {
+  width: 100%;
+  min-width: 187px;
+}
+
+.content {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #424242;
+}
+.bg {
+  text-align: right;
+}
+.bg img {
+  width: 100%;
+  height: auto;
+}
+
+.subheading {
+  font-size: 12px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 20px;
+  color: #424242;
+}
+
+.button {
+  padding: 9px 35px 9px 15px;
+  background-color: var(--primary);
+  border-radius: 99px;
+  color: var(--white);
+  font-weight: 500;
+  height: 42px;
+  border: 1px solid var(--primary);
+  box-shadow: inset -2px -2px 0 0 var(--primary),
+    inset 0 0px 3px 2px var(--primary_color3);
+  white-space: nowrap;
+  word-break: keep-all;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.button:hover {
+  color: var(--white);
+  background-color: var(--primary_dark);
+  box-shadow: inset -2px -2px 0 0 var(--primary_dark),
+    inset 0 0px 3px 2px var(--primary_color2);
+}
+.style .button {
+  background-color: #ea00a1;
+  border: 1px solid #ea00a1;
+  box-shadow: inset -2px -2px 0 0 #ea00a1, inset 0 0px 3px 2px #ff33bf;
+}
+.style .button:hover {
+  opacity: 0.8;
+  color: var(--white);
+  background-color: #ea00a1;
+  box-shadow: inset -2px -2px 0 0 #ea00a1, inset 0 0px 3px 2px #ff33bf;
+}
+.style .heading,
+.style .subheading {
+  color: #fff;
+}
+@media (max-width: 478px) {
+  .bannerContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

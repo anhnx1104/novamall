@@ -1,0 +1,13 @@
+.breadcrumbs {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.breadcrumbs_item {
+  font-weight: 400;
+  color: #8f8f8f;
+  margin: 0;
+}

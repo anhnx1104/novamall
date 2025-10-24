@@ -1,0 +1,21 @@
+.list {
+  display: block;
+  list-style: none;
+  padding: 0px;
+}
+
+.endMessage {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 22px;
+}
+@media (max-width: 478px) {
+  .container_products {
+    justify-content: center;
+    gap: 0 10px;
+  }
+  .gallery_container {
+    padding: 0 10px 0;
+  }
+}

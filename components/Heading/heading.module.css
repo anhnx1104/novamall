@@ -1,0 +1,26 @@
+.head_container {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.head_title {
+  color: var(--primary_color2);
+  text-align: left;
+}
+.head_subtitle {
+  color: var(--secondary);
+  margin: 0;
+  text-align: left;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.icon_outline {
+  color: var(--primary_color2);
+}
+.icon_fill {
+  color: var(--primary_color2);
+  background-color: white;
+  border-radius: 50%;
+}

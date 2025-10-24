@@ -1,0 +1,412 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  transition: transform 0.3s;
+  background: #fff;
+}
+.nav.dark {
+  background: var(--bg-dark);
+}
+.nav hr {
+  margin: 0;
+  background-color: #c5c5c5;
+  opacity: 1;
+}
+
+.top_bar > div,
+.container {
+  display: flex;
+  width: 100% !important;
+  max-width: var(--container-width);
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 80px;
+}
+.bottom_bar {
+  background: #fff;
+  border-top: 1px solid var(--stroke-E8ECEF);
+  border-bottom: 1px solid #e8ecef;
+}
+.dark .bottom_bar {
+  background: var(--bg-dark);
+  border-top: 1px solid #27223f;
+  border-bottom: 1px solid #07021b;
+}
+.bottom_bar_container {
+  display: flex;
+  width: 100% !important;
+  max-width: var(--container-width);
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.hide_top_bar {
+  transform: translateY(-131px);
+  transition: all 0.3s;
+}
+
+.show_top_bar {
+  transform: translateY(0px);
+  transition: all 0.3s;
+}
+
+.top_bar {
+  width: 100%;
+}
+
+.top_bar_left {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  padding-right: 30px;
+}
+
+.top_bar_right {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  padding-left: 30px;
+}
+
+.top_bar_content {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.top_bar_content_p_left {
+  padding: 7px 20px 7px 0px;
+}
+
+.top_bar_content svg {
+  margin-right: 5px;
+}
+
+.container {
+  align-items: center;
+  padding: 14px 0px;
+  justify-content: space-between;
+}
+
+.start {
+  display: flex;
+  justify-content: flex-start;
+  width: 129px;
+  align-items: center;
+  gap: 40px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  width: 48%;
+  align-items: center;
+}
+
+.end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.divider {
+  width: 1px;
+  height: 20.5px;
+  margin: 0 24px;
+  background-color: rgba(180, 180, 204, 0.5);
+}
+.dark .end {
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.nav_link {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.ul {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.list {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.item a {
+  height: 48px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-121212);
+}
+.dark .item a {
+  color: var(--purple-light-opa50);
+}
+
+.item a:hover {
+  color: var(--purple-dark);
+  transition: color 0.4s;
+}
+.item.active a {
+  color: var(--purple-dark);
+  border-bottom: 2px solid var(--purple-dark);
+}
+.dark .item a:hover {
+  color: var(--purple-light);
+}
+.dark .item.active a {
+  color: var(--purple-light);
+  border-bottom: 2px solid var(--purple-light);
+}
+.end > div {
+  cursor: pointer;
+  position: relative;
+  min-width: auto;
+  display: flex;
+  align-items: flex-end;
+}
+.end > .link_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  position: relative;
+  border-radius: 100%;
+}
+.end > .link_button:hover {
+  background: var(--purple-light-opa50);
+}
+.dark .end > .link_button:hover {
+  background: rgba(233, 212, 255, 0.08);
+}
+
+.end > div > span {
+  background-color: var(--purple);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  min-width: 24px;
+  height: 24px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: 0;
+  border: 3px solid #fff;
+}
+
+.end > div > p {
+  margin: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  max-width: 70px;
+  overflow: auto;
+}
+
+.auth_button button {
+  width: 89px;
+  height: 38px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.btn_login {
+  border: none !important;
+}
+.dark .btn_login {
+  background-color: transparent;
+  color: #b4b4cc;
+  opacity: 0.6;
+}
+.username span {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-121212);
+  opacity: 0.6;
+}
+.dark .username span {
+  color: var(--purple-light);
+}
+.point {
+  color: var(--text-3f3f3f);
+  display: flex;
+  align-items: center;
+}
+.dark .point {
+  color: #fff;
+}
+.line {
+  width: 1px;
+  height: 20.5px;
+  margin: 0 20px;
+  background-color: var(--stroke-E8ECEF);
+}
+.dark .line {
+  background-color: var(--purple-light);
+  opacity: 0.5;
+}
+
+.bottom_bar {
+  display: flex;
+  padding: 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom_bar button,
+.track a {
+  display: flex;
+  align-items: center;
+}
+
+.bottom_bar button {
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.bottom_bar button svg {
+  margin-top: 2px;
+}
+
+.track a {
+  font-size: 18px;
+  font-weight: 500;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.track a:hover {
+  color: var(--primary);
+}
+
+.track svg {
+  margin-right: 2px;
+}
+
+@media (max-width: 1170px) {
+  .center {
+    width: 46%;
+  }
+  .end {
+    width: 38%;
+  }
+}
+@media (max-width: 991px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .top_bar_left {
+    display: none;
+  }
+
+  .top_bar_right {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 9px;
+  }
+
+  .container {
+    padding: 9px 18px;
+  }
+
+  .sidebar_button {
+    display: flex;
+  }
+
+  .sidebar_link {
+    padding-top: 85px;
+  }
+
+  .start {
+    width: 50%;
+  }
+
+  .end {
+    width: 50%;
+  }
+
+  .center {
+    display: none;
+  }
+
+  .cart i {
+    top: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .top_bar_content_p_right {
+    padding: 7px 9px 7px 4px;
+  }
+
+  .container {
+    padding: 9px 5px;
+  }
+
+  .cart {
+    width: 50px;
+  }
+
+  .cart p {
+    display: none;
+  }
+
+  .price {
+    display: none;
+  }
+  .searchBar {
+    padding: 22px 16px;
+  }
+  .spinner {
+    left: calc(100% - 109px);
+  }
+  .searchData {
+    width: calc(100% - 94px);
+    left: 17px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

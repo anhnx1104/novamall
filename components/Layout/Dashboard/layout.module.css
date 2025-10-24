@@ -1,0 +1,26 @@
+.content_body {
+  display: flex;
+  flex: 1;
+  padding-top: 76px;
+  min-height: 100vh;
+}
+
+.content {
+  padding-inline-start: 300px;
+  flex: 1;
+  width: 100%;
+  width: -webkit-fill-available;
+  background-color: var(--blue_white);
+}
+
+.content_inner_body {
+  margin: 32px;
+  min-height: 92%;
+  height: -webkit-fill-available;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-inline-start: 0;
+  }
+}

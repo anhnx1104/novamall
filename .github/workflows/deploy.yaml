@@ -1,0 +1,38 @@
+name: Deploy Backend Frontend
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Initialize Known Hosts
+        run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
+      - name: Set Permissions for Private Key
+        run: |
+          echo "${{ secrets.SSH_KEY }}" > $HOME/.ssh/key.pem
+          chmod 400 $HOME/.ssh/key.pem
+      - name: Create .env file
+        run: |
+          echo "${{ secrets.ENV }}" > .env
+      - name: Copy files to VM And Run Application
+        run: |
+          # Ensure the directory exists on the remote server
+          ssh -i $HOME/.ssh/key.pem ubuntu@${{ secrets.VM_HOST }} "mkdir -p ~/novamall"
+
+          # Sync files to the remote server
+          rsync -av -e "ssh -i $HOME/.ssh/key.pem" --exclude='node_modules' ./* ubuntu@${{ secrets.VM_HOST }}:~/novamall/
+
+          # Copy the .env file to the remote server
+          rsync -av -e "ssh -i $HOME/.ssh/key.pem" .env ubuntu@${{ secrets.VM_HOST }}:~/novamall/.env
+
+          # Run commands on the remote server
+          ssh -i $HOME/.ssh/key.pem ubuntu@${{ secrets.VM_HOST }} "source /home/ubuntu/.nvm/nvm.sh && nvm use 18.20.8 && cd ~/novamall && pnpm install && pnpm run build && pm2 restart all"

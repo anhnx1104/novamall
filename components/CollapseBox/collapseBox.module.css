@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fd;
+  color: #757575;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  padding: 0 30px;
+}
+.header:hover {
+  background: #f8f9fd;
+  opacity: 1;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.rotateDown {
+  transform: rotate(0deg);
+}
+
+.rotateUp {
+  transform: rotate(180deg);
+}
+
+/* Content */
+.content {
+  background: #fff;
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 749px) {
+  .header {
+    padding: 0 16px;
+  }
+}

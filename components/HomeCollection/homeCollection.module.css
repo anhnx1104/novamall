@@ -1,0 +1,188 @@
+.container {
+  text-align: center;
+  background: #04001c;
+  padding: 102px 0 68px;
+}
+.light.container {
+  background: #fff;
+}
+
+.header h2 {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #fff;
+  position: relative;
+}
+.header h2 span {
+  color: var(--purple-dark);
+}
+.light .header h2 {
+  color: var(--text-121212);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 54px;
+  opacity: 0.8;
+  white-space: pre-line;
+}
+.light .subtitle {
+  color: var(--text-3f3f3f);
+}
+
+.desc {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 56px;
+  opacity: 0.8;
+}
+
+.grid {
+  max-width: 1048px;
+  margin: 0 auto;
+  padding: 12px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.light .navBtn {
+  color: rgba(19, 19, 19, 0.5);
+}
+.navBtn:hover {
+  color: #fff;
+}
+.light .navBtn:hover {
+  color: var(--text-121212);
+}
+.prevBtn {
+  left: 20px;
+}
+.nextBtn {
+  right: 20px;
+}
+
+/* Custom Pagination with Navigation */
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 42px;
+  gap: 28px;
+}
+
+.progressContainer {
+  flex: 1;
+  max-width: 82px;
+  min-width: 82px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(243, 243, 243, 0.12);
+  position: relative;
+}
+.light .progressBar {
+  background: var(--bg-input-field);
+}
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  background: #96f;
+  box-shadow: 0 0 7px 2px rgba(153, 102, 255, 0.5);
+  transition: width 0.3s ease-in-out;
+}
+
+.paginationBtn {
+  position: static;
+  transform: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.paginationBtn:hover {
+  color: #fff;
+}
+.light .paginationBtn:hover {
+  color: var(--text-121212);
+}
+.paginationBtn:active {
+  transform: scale(0.95);
+}
+.bottomBg {
+  height: 140px;
+  width: 100%;
+  background-color: #04001c;
+}
+.bottomOverlay {
+  height: 180px;
+  width: 100%;
+  background: linear-gradient(
+    0,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(4, 0, 28, 0.01) 6.67%,
+    rgba(4, 0, 28, 0.04) 13.33%,
+    rgba(4, 0, 28, 0.08) 20%,
+    rgba(4, 0, 28, 0.15) 26.67%,
+    rgba(4, 0, 28, 0.23) 33.33%,
+    rgba(4, 0, 28, 0.33) 40%,
+    rgba(4, 0, 28, 0.44) 46.67%,
+    rgba(4, 0, 28, 0.56) 53.33%,
+    rgba(4, 0, 28, 0.67) 60%,
+    rgba(4, 0, 28, 0.77) 66.67%,
+    rgba(4, 0, 28, 0.85) 73.33%,
+    rgba(4, 0, 28, 0.92) 80%,
+    rgba(4, 0, 28, 0.96) 86.67%,
+    rgba(4, 0, 28, 0.99) 93.33%,
+    #04001c 100%
+  );
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 32px 0;
+  }
+  .header h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .grid {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .subtitle {
+    display: none;
+  }
+  .bottomBg {
+    display: none;
+  }
+}
+@media (max-width: 749px) {
+  .grid {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px;
+  }
+}

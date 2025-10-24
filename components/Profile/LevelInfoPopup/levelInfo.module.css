@@ -1,0 +1,100 @@
+.btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+}
+
+.dropdown {
+  font-size: 12px;
+  color: var(--text-3f3f3f);
+  position: relative;
+}
+
+.menu {
+  border: 1px solid var(--text-121212);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  overflow-y: auto;
+  max-height: 640px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: var(--text-121212);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 16px 16px 4px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  padding: 12px 16px;
+  border-bottom: 8px solid var(--bg-input-field);
+}
+.card:last-child {
+  border-bottom: none;
+}
+
+.levelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--bg-input-field);
+}
+.titleBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.level {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-121212);
+}
+.levelTitle {
+  font-size: 12px;
+  color: var(--purple-dark);
+  white-space: pre-line;
+}
+
+.badge {
+  background: var(--purple);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  width: 60px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc {
+  font-size: 12px;
+  margin-top: 12px;
+  padding: 0 8px;
+}
+
+.desc p {
+  margin: 0px 0 4px;
+  color: var(--text-757575);
+  font-weight: 400;
+}

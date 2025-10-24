@@ -1,0 +1,11 @@
+.bannerContainer {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .bannerContainer {
+    flex-direction: column;
+  }
+}

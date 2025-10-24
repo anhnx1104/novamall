@@ -1,0 +1,122 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.searchBar {
+  width: 260px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  height: 38px;
+}
+.searchBar_def {
+  width: 100%;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  height: 38px;
+}
+
+.searchInput_def {
+  border: none !important;
+  background: transparent;
+  color: #000;
+  font-size: 14px;
+  padding: 0 0 0 32px;
+  width: 100%;
+}
+
+.searchInput_def::placeholder {
+  color: #ababab;
+}
+
+.searchInput_def:focus {
+  box-shadow: none !important;
+}
+
+.search_icon_def {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  top: 0;
+  color: #7b8281;
+  cursor: pointer;
+}
+.btnSearch {
+  background-color: #a383fd;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  height: 38px;
+  margin-left: 12px;
+  width: 71px;
+}
+.select {
+  width: 145px;
+  border: 1px solid var(--border_color) !important;
+  color: #404040;
+  font-size: 12px;
+  height: 38px;
+}
+.tableContent {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  overflow: auto;
+}
+.tableContent table {
+  width: 100%;
+  font-size: 14px;
+  min-width: 600px;
+  overflow: auto;
+}
+.tableContent table thead th {
+  background-color: #a383fd;
+  color: #fff;
+  padding: 10px;
+  font-weight: 400;
+}
+.tableContent table thead th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+.tableContent table thead th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+.tableContent table tbody td {
+  padding: 14px 10px;
+  font-size: 14px;
+}
+.tableContent table tbody tr {
+  border-bottom: 1px solid #eaeaea;
+}
+.tableContent table tbody tr:last-child {
+  border-bottom: none;
+}
+.tableContent table tbody td button {
+  border: none;
+  border-radius: 99px;
+  width: 72px;
+  height: 26px;
+  text-align: center;
+  font-weight: 400;
+  color: #fff;
+  background-color: #52a356;
+}

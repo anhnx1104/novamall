@@ -1,0 +1,138 @@
+.category_container {
+  background-color: #fff;
+  border-bottom: 1px solid #f0f2f4;
+}
+.overlay {
+  height: 180px;
+  width: 100%;
+  background: linear-gradient(
+    0,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(4, 0, 28, 0.01) 6.67%,
+    rgba(4, 0, 28, 0.04) 13.33%,
+    rgba(4, 0, 28, 0.08) 20%,
+    rgba(4, 0, 28, 0.15) 26.67%,
+    rgba(4, 0, 28, 0.23) 33.33%,
+    rgba(4, 0, 28, 0.33) 40%,
+    rgba(4, 0, 28, 0.44) 46.67%,
+    rgba(4, 0, 28, 0.56) 53.33%,
+    rgba(4, 0, 28, 0.67) 60%,
+    rgba(4, 0, 28, 0.77) 66.67%,
+    rgba(4, 0, 28, 0.85) 73.33%,
+    rgba(4, 0, 28, 0.92) 80%,
+    rgba(4, 0, 28, 0.96) 86.67%,
+    rgba(4, 0, 28, 0.99) 93.33%,
+    #04001c 100%
+  );
+}
+
+.root_container {
+  position: relative;
+  padding: 20px 0 48px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.category_root {
+  display: block;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 180px;
+  height: 156px;
+}
+
+.container {
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  aspect-ratio: 1/1;
+  box-shadow: none;
+  transition: 0.5s all ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button_prev {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  cursor: pointer;
+}
+.button_next {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.container figure {
+  margin: 0;
+  padding: 0;
+}
+
+.img {
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  background: var(--purple-light-opa50);
+}
+
+.name {
+  font-weight: 500;
+  margin: 12px 0px 0;
+  color: var(--text-121212);
+  font-size: 16px;
+  height: 46px;
+  overflow: hidden;
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .root_container {
+    padding: 40px 0;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .category_container {
+    border-bottom: 1px solid #f0f2f4;
+    border-top: 8px solid #f0f2f4;
+  }
+  .category_root {
+    width: 100px;
+    height: 100px;
+  }
+  .overlay {
+    display: none;
+  }
+  .img {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+  }
+  .img svg {
+    width: 24px;
+    height: 24px;
+  }
+  .name {
+    font-size: 14px;
+  }
+}
+@media (max-width: 749px) {
+  .root_container {
+    padding: 32px 0;
+    margin: 0 auto;
+    width: auto;
+  }
+  .category_container {
+    border-bottom: 1px solid #f0f2f4;
+    border-top: 0;
+  }
+}

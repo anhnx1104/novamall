@@ -1,0 +1,252 @@
+.orderInfo {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.orderInfo .flex {
+  width: 80%;
+  justify-content: space-between;
+}
+.orderInfo p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #807d7e;
+}
+.orderInfo p span {
+  color: #bebcbd;
+}
+.orderInfo .orderNo {
+  font-size: 20px;
+  color: #3c4242;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.left {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  flex-wrap: wrap;
+}
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+.orderSteps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+.orderSteps ul {
+  margin: 0;
+}
+.progressBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+.stepDescription {
+  background-color: #b5eacc;
+  border: 0.5px solid #807d7e33;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+  margin: 20px 0 60px 0;
+  width: 70%;
+  position: relative;
+}
+.stepDescription::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 12px solid #b5eacc;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.stepDescription::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: -13px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 13px solid #807d7e33;
+  transform: translateX(-50%);
+}
+.stepDescription p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #727272;
+  margin-bottom: 0;
+}
+.stepDescription p:last-child {
+  color: #00753b;
+}
+.step::after {
+  content: "";
+  position: absolute;
+  left: -50%;
+  width: 100%;
+  height: 4px;
+  top: 6px;
+  background: #a6a4a5;
+}
+
+.step:first-child::after {
+  width: 0;
+}
+
+.active::after {
+  background: var(--primary);
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ccc;
+  border: 3px solid #ccc;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.active .circle {
+  background: #fff;
+  border-color: var(--primary);
+}
+.step .done {
+  background-color: var(--primary);
+}
+.label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #bbb;
+  font-weight: bold;
+}
+
+.activeLabel {
+  color: black;
+}
+.orderDetails {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 80px;
+}
+.orderItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.orderItem p {
+  margin-bottom: 0;
+}
+.orderItem:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.productImage {
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 20px;
+  min-width: 96px;
+}
+.productImage img {
+  object-fit: contain;
+}
+.productDetails {
+  min-width: 160px;
+}
+.productDetails p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+.productDetails h5 {
+  font-weight: 400;
+  font-size: 16px;
+  width: 200px;
+}
+.productQuantity {
+  margin-left: 40px;
+}
+
+.deleteButton {
+  border: none;
+  background-color: transparent;
+}
+.price_container {
+  width: 30%;
+}
+@media screen and (max-width: 468px) {
+  .orderInfo .flex {
+    flex-direction: column;
+    width: 100%;
+    justify-content: start;
+    text-align: left;
+    align-items: start;
+  }
+  .price_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .price_container div {
+    width: 33% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .orderItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 10%;
+    align-items: center;
+  }
+  .productImage {
+    margin-bottom: 12px;
+  }
+  .productDetails h5 {
+    width: 100%;
+    white-space: break-spaces;
+  }
+}

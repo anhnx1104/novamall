@@ -1,0 +1,31 @@
+.main {
+  margin-top: 129px;
+}
+
+.dark.main {
+  background-color: var(--bg-dark);
+}
+.light.main {
+  background-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .main {
+    margin-top: 177px;
+    padding-bottom: 86px;
+  }
+  .footerHidden {
+    padding-bottom: 0;
+  }
+  .headerBack {
+    margin-top: 81px;
+  }
+}
+@media (max-width: 749px) {
+  .main {
+    margin-top: 148px;
+  }
+  .headerBack {
+    margin-top: 57px;
+  }
+}

@@ -1,0 +1,165 @@
+.container {
+  text-align: center;
+  background: #fff;
+  padding-top: 108px;
+}
+
+.header h2 {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: var(--text-121212);
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--text-3f3f3f);
+  margin-bottom: 0;
+  opacity: 0.8;
+}
+
+.desc {
+  font-size: 20px;
+  color: var(--text-3f3f3f);
+  margin-bottom: 56px;
+  opacity: 0.8;
+}
+
+.grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.slider {
+  width: 1380px;
+}
+.overlay {
+  background: linear-gradient(
+    270deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0.5) 16.67%,
+    rgba(255, 255, 255, 0) 33.33%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0) 66.67%,
+    rgba(255, 255, 255, 0.5) 83.33%,
+    #fff 100%
+  );
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  width: 1434px;
+  height: 440px;
+}
+
+.card {
+  display: flex;
+  width: 480px;
+  height: 212px;
+  padding: 24px 28px;
+  flex-direction: column;
+  gap: 24px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: radial-gradient(
+      70.71% 70.71% at 50% 50%,
+      rgba(120, 123, 255, 0.06) 0%,
+      rgba(120, 123, 255, 0) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 54.17%, rgba(0, 0, 0, 0.04) 100%);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.stars {
+  font-size: 14px;
+  color: #5a2eca;
+  font-weight: bold;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars span {
+  color: var(--text-121212);
+  font-weight: 500;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--text-121212);
+  margin-bottom: 0;
+}
+
+.text {
+  overflow: hidden;
+  color: var(--text-757575);
+  text-overflow: ellipsis;
+  font-weight: 500;
+  line-height: 24px;
+  line-clamp: 4;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.highlight {
+  color: var(--purple-dark);
+}
+@media (max-width: 991px) {
+  .container {
+    padding-top: 16px;
+  }
+  .slider {
+    width: 100%;
+  }
+  .overlay {
+    width: 100%;
+  }
+  .swiper2 {
+    display: none;
+  }
+  .header h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .desc {
+    display: none;
+  }
+  .grid {
+    padding: 0 0 72px;
+  }
+  .card {
+    width: 315px;
+  }
+  .user img,
+  .meta {
+    display: none;
+  }
+}
+@media (max-width: 749px) {
+  .overlay {
+    display: none;
+  }
+  .card {
+    margin: 0 auto;
+  }
+}

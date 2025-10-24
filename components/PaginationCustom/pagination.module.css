@@ -1,0 +1,126 @@
+.paginationList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.paginationList button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+.paginationList .paginationItem {
+  border-radius: 4px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-121212);
+}
+.paginationList .paginationItem:hover {
+  background: var(--purple-light) 80;
+}
+.paginationList .paginationItemActive {
+  background: var(--purple-light) 80;
+}
+.paginationList .paginationButton {
+  border-radius: 4px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-121212);
+}
+.paginationButtonNext {
+  rotate: 180deg;
+}
+
+.paginationPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 34px;
+}
+.paginationInfoPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  color: var(--text-949494);
+  font-weight: 500;
+}
+.paginationInfoPage span {
+  font-size: 16px;
+  color: var(--text-121212);
+}
+.paginationPage .paginationButton {
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 40px;
+  border-radius: 8px;
+}
+.paginationPage .paginationButtonNext {
+  rotate: 180deg;
+  border: none;
+  color: #fff;
+  background: linear-gradient(90.08deg, #14f195 0%, #9033ff 100.59%);
+}
+.paginationPage .paginationButtonPrev {
+  border: 1px solid var(--stroke-button);
+  background-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .content {
+    width: 100%;
+    max-width: 1014px;
+  }
+
+  .paginationInfoPage {
+    display: none;
+  }
+  .grid {
+    position: relative;
+  }
+  .paginationPage .paginationButton {
+    position: absolute;
+    top: 32%;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: 99;
+  }
+  .paginationButtonPrev {
+    left: -12px;
+  }
+  .paginationButtonNext {
+    right: -12px;
+  }
+}
+@media (max-width: 749px) {
+  .paginationPage {
+    display: flex;
+  }
+  .paginationInfoPage {
+    display: flex;
+  }
+  .paginationPage .paginationButton {
+    position: relative;
+    top: 0;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    z-index: 99;
+  }
+}
