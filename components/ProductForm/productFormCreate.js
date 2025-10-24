@@ -17,6 +17,7 @@ import {
 import GroupManagement from "./ProductTabCreate/GroupManagement";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import RankingManagement from "./ProductTabCreate/RankingManagement";
+import RewardManagement from "./ProductTabCreate/RewardManagement";
 export default function ProductFormCreate() {
   const [tabValue, setTabValue] = useState(0);
 
@@ -75,20 +76,26 @@ export default function ProductFormCreate() {
         value={tabValue}
         onChange={handleChangeTab}
         sx={{
-          backgroundColor: "#e0e0e0",
+          backgroundColor: "#D9D9D9",
+          minHeight: '40px', // Tabs 컨테이너의 최소 높이를 줄여 전체 여백을 최소화
+
           "& .MuiTab-root": {
-            minHeight: "auto",
+            minHeight: "40px", // Tab 요소 자체의 최소 높이를 컨테이너와 맞춥니다.
+            padding: '0 16px', // 필요하다면 내부 패딩을 조정하여 텍스트 위치를 최적화
             textTransform: "none",
             fontWeight: 500,
             color: "#333",
-            flex: 1,
+            flex: 1, // 탭을 균등하게 분배
           },
+
           "& .MuiTabs-indicator": {
-            display: "none",
+            display: "none", // 하단 인디케이터 제거
           },
+
           "& .Mui-selected": {
             backgroundColor: "#bdbdbd",
             fontWeight: 600,
+            color: '#333',
           },
         }}
       >
@@ -158,7 +165,8 @@ export default function ProductFormCreate() {
           <RankingManagement />
         )}
         {tabValue === 3 && (
-          <Typography sx={{ mt: 3 }}>리워드 관리 탭 내용 (sẽ bổ sung sau)</Typography>
+          <RewardManagement />
+
         )}
       </Box>
     </Box>
