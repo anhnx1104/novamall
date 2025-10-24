@@ -16,9 +16,9 @@ import {
   TextField
 } from "@mui/material"
 import { Iconify } from "~/components/iconify";
-
+import { Switch } from "@mui/material";
 const DataTable = dynamic(() => import("react-data-table-component"));
-const FilterComponent = dynamic(() => import("~/components/tableFilter"));
+const DeleteGroupDialog = dynamic(() => import("~/components/Dialog"));
 const GlobalModal = dynamic(() => import("~/components/Ui/Modal/modal"));
 
 const SpecialGroupList = () => {
@@ -93,10 +93,10 @@ const SpecialGroupList = () => {
 
   const filteredItems = groupList
     ? groupList?.filter(
-        (item) =>
-          item.name &&
-          item.name.toLowerCase().includes(filterText.toLowerCase())
-      )
+      (item) =>
+        item.name &&
+        item.name.toLowerCase().includes(filterText.toLowerCase())
+    )
     : [];
 
   const openCreateModal = () => {
@@ -134,172 +134,190 @@ const SpecialGroupList = () => {
   const subHeaderComponentMemo = React.useMemo(() => {
 
     return (
-   <Box
-  sx={{
-    display: "flex",
-    alignItems: "center", 
-    justifyContent: "space-between", 
-    flexWrap: "wrap", 
-    gap: 2, 
-    mb: 2, 
-  }}
->
-  <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
-    {filters.map((label, index) => (
-      <Box key={label} sx={{ display: "flex", alignItems: "center" }}>
-        <Button
-          onClick={() => setActive(label)}
-          sx={{
-            minWidth: "auto",
-            p: 0,
-            textTransform: "none",
-            color: active === label ? "#1976d2" : "#333",
-            fontWeight: active === label ? 600 : 400,
-            background: "none",
-            border: "none",
-            "&:hover": {
-              background: "transparent",
-              color: "#1976d2",
-            },
-          }}
-        >
-          {label}
-        </Button>
-        {index < filters.length - 1 && (
-          <Box component="span" sx={{ mx: 1, color: "#999" }}>
-            |
-          </Box>
-        )}
-      </Box>
-    ))}
-  </Box>
-<Box sx={{ display: "flex", alignItems: "center", gap: 1, ml: "auto" }}>
-      <TextField
-                placeholder="상품명 or 코드 입력"
-                variant="outlined"
-                size="small"
-                value={searchQuery}
-                 InputProps={{
-    startAdornment: (
-      <InputAdornment position="start">
-        <Iconify icon="eva:search-fill" />
-      </InputAdornment>
-    ),
-  }}
-
-                onChange={(e) => setSearchQuery(e.target.value)}
-              
-                sx={{ width: 250 }}
-              />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 2,
+          mb: 2,
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
+          {filters.map((label, index) => (
+            <Box key={label} sx={{ display: "flex", alignItems: "center" }}>
               <Button
-                variant="contained"
+                onClick={() => setActive(label)}
                 sx={{
-                  backgroundColor: "#666",
+                  minWidth: "auto",
+                  p: 0,
+                  textTransform: "none",
+                  color: active === label ? "#1976d2" : "#333",
+                  fontWeight: active === label ? 600 : 400,
+                  background: "none",
+                  border: "none",
                   "&:hover": {
-                    backgroundColor: "#555",
+                    background: "transparent",
+                    color: "#1976d2",
                   },
                 }}
               >
-                검색
+                {label}
               </Button>
-</Box>
-  <Button
-    variant="contained"
-    onClick={openCreateModal}
-    sx={{
-      backgroundColor: "var(--primary)",
-      borderColor: "var(--primary)",
-      fontWeight: 600,
-      textTransform: "none",
-      "&:hover": {
-        backgroundColor: "#145bb2",
-      },
-    }}
-  >
-    + 새 그룹 생성
-  </Button>
-</Box>
+              {index < filters.length - 1 && (
+                <Box component="span" sx={{ mx: 1, color: "#999" }}>
+                  |
+                </Box>
+              )}
+            </Box>
+          ))}
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, ml: "auto" }}>
+          <TextField
+            placeholder="상품명 or 코드 입력"
+            variant="outlined"
+            size="small"
+            value={searchQuery}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Iconify icon="eva:search-fill" />
+                </InputAdornment>
+              ),
+            }}
+
+            onChange={(e) => setSearchQuery(e.target.value)}
+
+            sx={{ width: 250 }}
+          />
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#666",
+              "&:hover": {
+                backgroundColor: "#555",
+              },
+            }}
+          >
+            검색
+          </Button>
+        </Box>
+        <Button
+          variant="contained"
+          onClick={openCreateModal}
+          sx={{
+            backgroundColor: "var(--primary)",
+            borderColor: "var(--primary)",
+            fontWeight: 600,
+            textTransform: "none",
+            "&:hover": {
+              backgroundColor: "#145bb2",
+            },
+          }}
+        >
+          + 새 그룹 생성
+        </Button>
+      </Box>
 
     );
   }, [active]);
 
   const columns = [
     {
-      name: "그룹명",
-      selector: (row) => row.name,
-      sortable: true,
-      wrap: true,
-      minWidth: "120px",
+      name: "그룹 명",
+      cell: (row) => (
+        "새로운 그룹"
+      ),
+      sortable: false,
     },
     {
       name: "가격",
-      selector: (row) => formatNumberWithCommaAndFloor(row.price),
+      selector: (row) => row?.productId,
       sortable: true,
-      hide: "sm",
-      minWidth: "100px",
+      cell: (row) => (
+        "100,000원"
+      ),
     },
     {
       name: "상품 수",
-      selector: (row) => formatNumberWithCommaAndFloor(row.productCount),
-      sortable: true,
-      hide: "md",
-      minWidth: "80px",
-    },
-    {
-      name: "유저 한도 수",
-      selector: (row) => formatNumberWithCommaAndFloor(row.user_limit),
-      sortable: true,
-      minWidth: "100px",
-    },
-    {
-      name: "조회",
-      cell: (row) => (
-        <div className="position-relative dropdown-container">
-          <div
-            onClick={() => toggleDropdown(row._id)}
-            style={{ cursor: "pointer" }}
-          >
-            <ThreeDots width={18} height={18} title="조회 옵션" />
-          </div>
-
-          {activeDropdown === row._id && (
-            <div
-              className="position-fixed bg-white shadow rounded py-1 px-2"
-              style={{
-                right: "2%",
-                zIndex: 10,
-                minWidth: "100px",
-                border: "1px solid #dee2e6",
-              }}
-            >
-              <Link
-                href={`/dashboard/special-group/${encodeURIComponent(row._id)}`}
-              >
-                <div
-                  className="d-flex align-items-center py-1 px-2"
-                  style={{ cursor: "pointer" }}
-                >
-                  <Eye width={16} height={16} className="me-2" />
-                  <span>보기</span>
-                </div>
-              </Link>
-              <div
-                className="d-flex align-items-center py-1 px-2 text-danger"
-                style={{ cursor: "pointer" }}
-                onClick={() => openModal(row._id, row.name)}
-              >
-                <Trash width={16} height={16} className="me-2" />
-                <span>삭제</span>
-              </div>
-            </div>
-          )}
-        </div>
+      selector: (row) => (
+        "5개"
       ),
-      minWidth: "60px",
-      maxWidth: "80px",
+      cell: (row) => (
+        "5개"
+      ),
     },
-  ];
+    {
+      name: "상위 유저 수",
+      selector: (row) => row?.name,
+      sortable: true,
+      cell: (row) => (
+        "5명"
+      ),
+    },
 
+
+    {
+      name: "최대 적립 한도",
+      selector: (row) => row?.category,
+      cell: (row) => (
+        "최대 적립 한도"
+      ),
+    },
+    {
+      name: "배분 비율",
+      selector: (row) => `${row?.supplyPrice?.toLocaleString()}원`,
+      right: true,
+      cell: (row) => (
+        "10,40% / 60%"
+      ),
+    },
+    {
+      name: "구매자 수",
+      selector: (row) => `${row?.salePrice?.toLocaleString()}원`,
+      right: true,
+      cell: (row) => (
+        "1,000명"
+      ),
+    },
+    {
+      name: "판매 수량",
+      selector: (row) => row?.stock,
+      right: true,
+      cell: (row) => (
+        "1,0000개"
+      ),
+    },
+    {
+      name: "액션",
+      selector: (row) => `${row?.shippingFee?.toLocaleString()}원`,
+      center: true,
+      cell: (row) => (
+        <Box sx={{ cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: 1 }}>
+          <span onClick={() => openModal(true)}>삭제 </span>
+          <span>수정 </span>
+        </Box>
+      ),
+    },
+    {
+      name: "노출",
+      selector: (row) => row?._id,
+      center: true,
+
+      cell: (row) => (
+        <Switch
+          onChange={(e) => {
+            const newStatus = e.target.checked ? "판매중" : "숨김";
+            console.log("Toggle:", newStatus, "for row:", row);
+          }}
+          color="primary"
+        />
+      ),
+
+    },
+
+  ];
   const customStyles = {
     table: {
       style: {
@@ -342,7 +360,7 @@ const SpecialGroupList = () => {
           responsive
           noHeader
         />
-        <GlobalModal isOpen={isOpen} handleCloseModal={closeModal} small={true}>
+        {/* <GlobalModal isOpen={isOpen} handleCloseModal={closeModal} small={true}>
           <div className="text-center p-3 p-md-4 position-relative">
             <div className="mt-3 mt-md-4">
               <h5 className="mb-3 fw-normal" style={{ fontSize: "18px" }}>
@@ -384,16 +402,24 @@ const SpecialGroupList = () => {
               </div>
             </div>
           </div>
-        </GlobalModal>
-
+        </GlobalModal> */}
+        <DeleteGroupDialog
+          open={isOpen}
+          onClose={() => closeModal()}
+          onConfirm={() => deleteGroup()}
+          title="[그룹명]' 그룹을 정말 삭제하시겠습니까?"
+          subs="이 그룹에 속한 모든 상품 정보가 함께 삭제되며, 이 작업은 복구할 수 없습니다"
+        />
         {/* Create Group Modal */}
         <GlobalModal
           isOpen={isCreateModalOpen}
           handleCloseModal={closeCreateModal}
-          small={true}
+          small
+          width="500px"
+
         >
           <div className="p-3 p-md-4">
-            <h5 className="text-center fw-bold mb-3 mb-md-4">특별 그룹 추가</h5>
+            <h5 className="text-center fw-bold mb-3 mb-md-4">특별 그룹 생성</h5>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-3">
                 <label htmlFor="groupName" className="form-label">
@@ -403,6 +429,7 @@ const SpecialGroupList = () => {
                   type="text"
                   className="form-control"
                   name="name"
+                  placeholder="텍스트 입력, 중복 불가"
                   id="groupName"
                   style={{
                     border: "1px solid #16316f",
@@ -427,13 +454,14 @@ const SpecialGroupList = () => {
                     borderRadius: "4px",
                     padding: "8px 12px",
                   }}
+                  placeholder="숫자 입력, 중복 가능"
                   required
                   {...register("price", { required: true })}
                 />
               </div>
               <div className="mb-4">
                 <label htmlFor="memberCount" className="form-label">
-                  유저 한도 수
+                  상위 유저 수
                 </label>
                 <input
                   type="number"
@@ -445,10 +473,78 @@ const SpecialGroupList = () => {
                     padding: "8px 12px",
                   }}
                   name="user_limit"
+                  placeholder="숫자 입력, 최소 1이상"
                   required
                   {...register("user_limit", { required: true })}
                 />
               </div>
+
+              <div className="mb-4">
+                <label htmlFor="memberCount" className="form-label">
+                  포인트 적립 한도 금액 입력
+                </label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="user_limit"
+                  style={{
+                    border: "1px solid #16316f",
+                    borderRadius: "4px",
+                    padding: "8px 12px",
+                  }}
+                  name="user_limit"
+                  placeholder="숫자 입력, 금액 기준"
+                  required
+                  {...register("user_1", { required: true })}
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="pointRatio" className="form-label" >
+                  포인트 지급 분배 비율 입력(합산 100%)
+                </label>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    marginTop: "4px",
+                  }}
+                >
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="withdraw_point"
+                    name="withdraw_point"
+                    placeholder="출금 가능 포인트"
+                    style={{
+                      border: "1px solid #000",
+                      borderRadius: "2px",
+                      padding: "6px 10px",
+                      fontSize: "14px",
+                    }}
+                    {...register("withdraw_point", { required: true })}
+                  />
+
+                  <span style={{ fontWeight: 600, fontSize: "24px" }}>/</span>
+
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="shopping_point"
+                    name="shopping_point"
+                    placeholder="쇼핑 포인트"
+                    style={{
+                      border: "1px solid #000",
+                      borderRadius: "2px",
+                      padding: "6px 10px",
+                      fontSize: "14px",
+                    }}
+                    {...register("shopping_point", { required: true })}
+                  />
+                </div>
+              </div>
+
               <div className="d-flex flex-column flex-sm-row justify-content-between gap-2 mt-3 mt-md-4 pt-2 pt-md-4">
                 <button
                   type="button"

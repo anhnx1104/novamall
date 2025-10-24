@@ -18,6 +18,14 @@ const GlobalModal = (props) => {
       closeTimeoutMS={400}
       className={props.small ? classes.content_small : classes.content}
       overlayClassName={classes.overlay}
+      style={{
+        content: {
+          width: props.width || "480px",
+          maxWidth: "90vw",
+          margin: "auto",
+          inset: 0,
+        },
+      }}
     >
       <div className={classes.body}>
         <button

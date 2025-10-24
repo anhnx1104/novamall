@@ -100,8 +100,8 @@ const ProductList = () => {
       console.log(err.message);
     }
   }
-const [selectedRows, setSelectedRows] = useState([]);
- const allChecked = selectedRows.length === data?.product?.length && data?.product?.length > 0;
+  const [selectedRows, setSelectedRows] = useState([]);
+  const allChecked = selectedRows.length === data?.product?.length && data?.product?.length > 0;
   const someChecked = selectedRows.length > 0 && selectedRows.length < data?.product?.length;
 
   const handleSelectAll = (checked) => {
@@ -115,117 +115,117 @@ const [selectedRows, setSelectedRows] = useState([]);
       prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
     );
   };
- const columns = [
-   {
-       name: (
-         <Checkbox
-           indeterminate={someChecked}
-           checked={allChecked}
-           onChange={(e) => handleSelectAll(e.target.checked)}
-         />
-       ),
-       cell: (row) => (
-         <Checkbox
-           checked={selectedRows.includes(row._id)}
-           onChange={() => handleSelectRow(row._id)}
-         />
-       ),
-       width: "70px",
-       sortable: false,
-       ignoreRowClick: true,
-       allowOverflow: true,
-       button: true,
-     },
-   {
-     name: "상품 코드",
-     selector: (row) => row?.productId,
-     sortable: true,
-     cell: (row) => (
-       "k2139ds123"
-     ),
-   },
-   {
-     name: "대표 이미지",
-     selector: (row) => (
-       <ImageLoader
-           src={row?.image[0]?.url}
-           alt={data.name}
-           width={80}
-           height={80}
-         />
-     ),
-        cell: (row) => (
-       "이미지"
-     ),
-   },
-   {
-     name: "이름",
-     selector: (row) => row?.name,
-     sortable: true,
+  const columns = [
+    {
+      name: (
+        <Checkbox
+          indeterminate={someChecked}
+          checked={allChecked}
+          onChange={(e) => handleSelectAll(e.target.checked)}
+        />
+      ),
       cell: (row) => (
-       "상품 이름"
-     ),
-   },
-   {
-     name: "상품군",
-     selector: (row) => row?.category,
-     cell: (row) => (
-       "의류"
-     ),
-   },
- 
-   {
-     name: "공급가",
-     selector: (row) => `${row?.supplyPrice?.toLocaleString()}원`,
-     right: true,
-     cell: (row) => (
-       "10,000원"
-     ),
-   },
- 
-   {
-     name: "판매가",
-     selector: (row) => `${row?.salePrice?.toLocaleString()}원`,
-     right: true,
-     cell: (row) => (
-       "15,000원"
-     ),
-   },
- 
-   {
-     name: "재고",
-     selector: (row) => row?.stock,
-     right: true,
-       cell: (row) => (
-       "999"
-     ),
-   },
- 
-   {
-     name: "배송비",
-     selector: (row) => `${row?.shippingFee?.toLocaleString()}원`,
-     right: true,
-       cell: (row) => (
-       "5,000원"
-     ),
-   },
-   {
-     name: "판매 상태",
-     selector: (row) => row?.status,
+        <Checkbox
+          checked={selectedRows.includes(row._id)}
+          onChange={() => handleSelectRow(row._id)}
+        />
+      ),
+      width: "70px",
+      sortable: false,
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
+    },
+    {
+      name: "상품 코드",
+      selector: (row) => row?.productId,
+      sortable: true,
       cell: (row) => (
-       "판매중"
-     ),
-   },
-   {
-     name: "액션",
-     cell: (row) => (
-       <Button onClick={() => openModal(true)}>숨기기 수정 </Button>
-     ),
-     ignoreRowClick: true,
-     allowOverflow: true,
-     button: true,
-   },
- ];
+        "k2139ds123"
+      ),
+    },
+    {
+      name: "대표 이미지",
+      selector: (row) => (
+        <ImageLoader
+          src={row?.image[0]?.url}
+          alt={data.name}
+          width={80}
+          height={80}
+        />
+      ),
+      cell: (row) => (
+        "이미지"
+      ),
+    },
+    {
+      name: "이름",
+      selector: (row) => row?.name,
+      sortable: true,
+      cell: (row) => (
+        "상품 이름"
+      ),
+    },
+    {
+      name: "상품군",
+      selector: (row) => row?.category,
+      cell: (row) => (
+        "의류"
+      ),
+    },
+
+    {
+      name: "공급가",
+      selector: (row) => `${row?.supplyPrice?.toLocaleString()}원`,
+      right: true,
+      cell: (row) => (
+        "10,000원"
+      ),
+    },
+
+    {
+      name: "판매가",
+      selector: (row) => `${row?.salePrice?.toLocaleString()}원`,
+      right: true,
+      cell: (row) => (
+        "15,000원"
+      ),
+    },
+
+    {
+      name: "재고",
+      selector: (row) => row?.stock,
+      right: true,
+      cell: (row) => (
+        "999"
+      ),
+    },
+
+    {
+      name: "배송비",
+      selector: (row) => `${row?.shippingFee?.toLocaleString()}원`,
+      right: true,
+      cell: (row) => (
+        "5,000원"
+      ),
+    },
+    {
+      name: "판매 상태",
+      selector: (row) => row?.status,
+      cell: (row) => (
+        "판매중"
+      ),
+    },
+    {
+      name: "액션",
+      cell: (row) => (
+        <Button onClick={() => openModal(true)}>숨기기 수정 </Button>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
+    },
+  ];
 
   const customStyles = {
     rows: {
@@ -264,57 +264,57 @@ const [selectedRows, setSelectedRows] = useState([]);
               customStyles={customStyles}
             />
             <GlobalModal
-                        isOpen={isOpen}
-                        handleCloseModal={closeModal}
-                        small={true}
-                      >
-                   <div
-  style={{
-    borderRadius: "12px",
-    padding: "24px",
-    width: "360px",
-    textAlign: "left",
-  }}
->
-  <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 600 }}>동기화</h3>
-  <p style={{ color: "#555", marginTop: "8px", marginBottom: "20px" }}>
-    도매몰의 상품과 동기화 하시겠습니까?
-  </p>
+              isOpen={isOpen}
+              handleCloseModal={closeModal}
+              small={true}
+            >
+              <div
+                style={{
+                  borderRadius: "12px",
+                  padding: "24px",
+                  width: "360px",
+                  textAlign: "left",
+                }}
+              >
+                <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 600 }}>동기화</h3>
+                <p style={{ color: "#555", marginTop: "8px", marginBottom: "20px" }}>
+                  도매몰의 상품과 동기화 하시겠습니까?
+                </p>
 
-  <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", paddingRight: "8px" }}>
-        <button
-      onClick={() => deleteProduct()}
-      style={{
-        padding: "8px 16px",
-        borderRadius: "8px",
-        border: "none",
-        background: "#f44336",
-        color: "#fff",
-        fontWeight: 600,
-        cursor: "pointer",
-      }}
-    >
-      확인
-    </button>
-    <button
-      onClick={() => closeModal()}
-      style={{
-        padding: "8px 16px",
-        borderRadius: "8px",
-        border: "1px solid #ccc",
-        background: "#fff",
-        color: "#333",
-        fontWeight: 500,
-        cursor: "pointer",
-      }}
-    >
-      취소
-    </button>
+                <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", paddingRight: "8px" }}>
+                  <button
+                    onClick={() => deleteProduct()}
+                    style={{
+                      padding: "8px 16px",
+                      borderRadius: "8px",
+                      border: "none",
+                      background: "#f44336",
+                      color: "#fff",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                    }}
+                  >
+                    확인
+                  </button>
+                  <button
+                    onClick={() => closeModal()}
+                    style={{
+                      padding: "8px 16px",
+                      borderRadius: "8px",
+                      border: "1px solid #ccc",
+                      background: "#fff",
+                      color: "#333",
+                      fontWeight: 500,
+                      cursor: "pointer",
+                    }}
+                  >
+                    취소
+                  </button>
 
-  </div>
-</div>
+                </div>
+              </div>
 
-                      </GlobalModal>
+            </GlobalModal>
           </div>
         </div>
       )}
