@@ -1,12 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import { Checkbox, Button } from "@mui/material";
 
 const DataTable = dynamic(() => import("react-data-table-component"));
 
 const GroupManagement = () => {
-    const [selectedRows, setSelectedRows] = useState([]);
     const productList = Array.from({ length: 12 }, (_, i) => ({
         _id: i + 1,
         image: "이미지",
@@ -20,20 +18,8 @@ const GroupManagement = () => {
         waiting: 12,
     }));
 
-    const handleSelectAll = (checked) => {
-        setSelectedRows(checked ? productList.map((p) => p._id) : []);
-    };
 
-    const handleSelectRow = (id) => {
-        setSelectedRows((prev) =>
-            prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]
-        );
-    };
 
-    const allChecked =
-        selectedRows.length > 0 && selectedRows.length === productList.length;
-    const someChecked =
-        selectedRows.length > 0 && selectedRows.length < productList.length;
 
     const columns = [
         {

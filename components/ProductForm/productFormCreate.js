@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import GroupManagement from "./ProductTabCreate/GroupManagement";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
+import RankingManagement from "./ProductTabCreate/RankingManagement";
 export default function ProductFormCreate() {
   const [tabValue, setTabValue] = useState(0);
 
@@ -82,6 +82,9 @@ export default function ProductFormCreate() {
             fontWeight: 500,
             color: "#333",
             flex: 1,
+          },
+          "& .MuiTabs-indicator": {
+            display: "none",
           },
           "& .Mui-selected": {
             backgroundColor: "#bdbdbd",
@@ -152,7 +155,7 @@ export default function ProductFormCreate() {
           <GroupManagement />
         )}
         {tabValue === 2 && (
-          <Typography sx={{ mt: 3 }}>순위 관리 탭 내용 (sẽ bổ sung sau)</Typography>
+          <RankingManagement />
         )}
         {tabValue === 3 && (
           <Typography sx={{ mt: 3 }}>리워드 관리 탭 내용 (sẽ bổ sung sau)</Typography>
