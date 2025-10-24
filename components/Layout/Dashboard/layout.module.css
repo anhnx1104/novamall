@@ -11,6 +11,7 @@
   width: 100%;
   width: -webkit-fill-available;
   background-color: var(--blue_white);
+  overflow-y: auto;
 }
 
 .content_inner_body {

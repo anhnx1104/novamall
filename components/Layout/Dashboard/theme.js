@@ -4,9 +4,9 @@ import { createTheme } from "@mui/material/styles";
 const dashboardTheme = createTheme({
   palette: {
     primary: {
-      main: "#1976d2", // Default blue
-      light: "#42a5f5",
-      dark: "#1565c0",
+      main: "#9945ff", // Default blue
+      light: "#e9d4ff",
+      dark: "#5d00ce",
       contrastText: "#ffffff",
     },
     secondary: {
@@ -140,28 +140,6 @@ const dashboardTheme = createTheme({
           },
         },
       },
-      variants: [
-        {
-          props: { variant: "contained", color: "primary" },
-          style: {
-            backgroundColor: "#1976d2",
-            "&:hover": {
-              backgroundColor: "#1565c0",
-            },
-          },
-        },
-        {
-          props: { variant: "outlined", color: "primary" },
-          style: {
-            borderColor: "#1976d2",
-            color: "#1976d2",
-            "&:hover": {
-              backgroundColor: "rgba(25, 118, 210, 0.04)",
-              borderColor: "#1565c0",
-            },
-          },
-        },
-      ],
     },
     MuiCard: {
       styleOverrides: {
@@ -182,23 +160,7 @@ const dashboardTheme = createTheme({
         },
       },
     },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "#e0e0e0",
-            },
-            "&:hover fieldset": {
-              borderColor: "#bdbdbd",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "#1976d2",
-            },
-          },
-        },
-      },
-    },
+
     MuiAppBar: {
       styleOverrides: {
         root: {

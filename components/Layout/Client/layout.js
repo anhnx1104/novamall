@@ -22,6 +22,14 @@ const ClientLayout = (props) => {
   const [mobileNav, setMobileNav] = useState(false);
   const dimension = useWindowDimensions();
   useEffect(() => {
+    document.body.classList.add("client");
+    document.documentElement.classList.add("client");
+    return () => {
+      document.body.classList.remove("client");
+      document.documentElement.classList.remove("client");
+    };
+  }, []);
+  useEffect(() => {
     if (dimension.width !== 0 && dimension.width <= 991) {
       return setMobileNav(true);
     } else {

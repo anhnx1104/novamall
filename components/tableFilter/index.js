@@ -19,31 +19,37 @@ import {
   Tabs,
   InputAdornment,
   Button,
-} from "@mui/material"
+} from "@mui/material";
 
-const FilterComponent = ({ filterText, isSpecialProduct, onFilter, onClear, placeholder }) => {
+const FilterComponent = ({
+  filterText,
+  isSpecialProduct,
+  onFilter,
+  onClear,
+  placeholder,
+}) => {
   const [data, setData] = useState("");
-  const [category, setCategory] = useState("all")
-  const [category1, setCategory1] = useState("all")
-  const [category2, setCategory2] = useState("1")
-  const [tabValue, setTabValue] = useState(0)
-  const [searchQuery, setSearchQuery] = useState("")
+  const [category, setCategory] = useState("all");
+  const [category1, setCategory1] = useState("all");
+  const [category2, setCategory2] = useState("1");
+  const [tabValue, setTabValue] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState("전체");
 
   const filters = ["전체", "판매중", "숨김", "품절"];
 
   function handleCategoryChange(e) {
-    setCategory(e.target.value)
+    setCategory(e.target.value);
   }
   function handleCategoryChange2(e) {
-    setCategory2(e.target.value)
+    setCategory2(e.target.value);
   }
   function handleCategoryChange1(e) {
-    setCategory1(e.target.value)
+    setCategory1(e.target.value);
   }
 
   function handleTabChange(e, newValue) {
-    setTabValue(newValue)
+    setTabValue(newValue);
   }
 
   function handleSearch() {
@@ -64,7 +70,7 @@ const FilterComponent = ({ filterText, isSpecialProduct, onFilter, onClear, plac
   }, [data]);
 
   return (
-    <Box width="100%" sx={{ pt: 2, pb: 2 }} >
+    <Box width="100%" sx={{ pt: 2, pb: 2 }}>
       {/* Filter Header */}
       <Box
         sx={{
@@ -120,13 +126,13 @@ const FilterComponent = ({ filterText, isSpecialProduct, onFilter, onClear, plac
                     minWidth: "auto",
                     p: 0,
                     textTransform: "none",
-                    color: active === label ? "#1976d2" : "#333",
-                    fontWeight: active === label ? 600 : 400,
+                    color: active === label ? "#000" : "#333",
+                    fontWeight: active === label ? "bold" : 400,
                     background: "none",
                     border: "none",
                     "&:hover": {
                       background: "transparent",
-                      color: "#1976d2",
+                      color: "#000",
                     },
                   }}
                 >
@@ -148,7 +154,7 @@ const FilterComponent = ({ filterText, isSpecialProduct, onFilter, onClear, plac
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                handleSearch()
+                handleSearch();
               }
             }}
             InputProps={{

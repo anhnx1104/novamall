@@ -13,8 +13,9 @@ import {
   Box,
   InputAdornment,
   Button,
-  TextField
-} from "@mui/material"
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Iconify } from "~/components/iconify";
 import { Switch } from "@mui/material";
 const DataTable = dynamic(() => import("react-data-table-component"));
@@ -35,7 +36,7 @@ const SpecialGroupList = () => {
   const filters = ["전체", "노출", "비노출"];
 
   const { data, error, mutate } = useSWR("/api/group", fetchData);
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
 
   const {
     register,
@@ -93,10 +94,10 @@ const SpecialGroupList = () => {
 
   const filteredItems = groupList
     ? groupList?.filter(
-      (item) =>
-        item.name &&
-        item.name.toLowerCase().includes(filterText.toLowerCase())
-    )
+        (item) =>
+          item.name &&
+          item.name.toLowerCase().includes(filterText.toLowerCase())
+      )
     : [];
 
   const openCreateModal = () => {
@@ -132,7 +133,6 @@ const SpecialGroupList = () => {
   }, [data]);
 
   const subHeaderComponentMemo = React.useMemo(() => {
-
     return (
       <Box
         sx={{
@@ -144,7 +144,14 @@ const SpecialGroupList = () => {
           mb: 2,
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            flexWrap: "wrap",
+          }}
+        >
           {filters.map((label, index) => (
             <Box key={label} sx={{ display: "flex", alignItems: "center" }}>
               <Button
@@ -153,13 +160,13 @@ const SpecialGroupList = () => {
                   minWidth: "auto",
                   p: 0,
                   textTransform: "none",
-                  color: active === label ? "#1976d2" : "#333",
-                  fontWeight: active === label ? 600 : 400,
+                  color: active === label ? "#000" : "#333",
+                  fontWeight: active === label ? "bold" : 400,
                   background: "none",
                   border: "none",
                   "&:hover": {
                     background: "transparent",
-                    color: "#1976d2",
+                    color: "#000",
                   },
                 }}
               >
@@ -186,9 +193,7 @@ const SpecialGroupList = () => {
                 </InputAdornment>
               ),
             }}
-
             onChange={(e) => setSearchQuery(e.target.value)}
-
             sx={{ width: 250 }}
           />
           <Button
@@ -219,82 +224,70 @@ const SpecialGroupList = () => {
           + 새 그룹 생성
         </Button>
       </Box>
-
     );
   }, [active]);
 
   const columns = [
     {
       name: "그룹 명",
-      cell: (row) => (
-        "새로운 그룹"
-      ),
+      cell: (row) => "새로운 그룹",
       sortable: false,
     },
     {
       name: "가격",
       selector: (row) => row?.productId,
       sortable: true,
-      cell: (row) => (
-        "100,000원"
-      ),
+      cell: (row) => "100,000원",
     },
     {
       name: "상품 수",
-      selector: (row) => (
-        "5개"
-      ),
-      cell: (row) => (
-        "5개"
-      ),
+      selector: (row) => "5개",
+      cell: (row) => "5개",
     },
     {
       name: "상위 유저 수",
       selector: (row) => row?.name,
       sortable: true,
-      cell: (row) => (
-        "5명"
-      ),
+      cell: (row) => "5명",
     },
-
 
     {
       name: "최대 적립 한도",
       selector: (row) => row?.category,
-      cell: (row) => (
-        "최대 적립 한도"
-      ),
+      cell: (row) => "최대 적립 한도",
     },
     {
       name: "배분 비율",
       selector: (row) => `${row?.supplyPrice?.toLocaleString()}원`,
       right: true,
-      cell: (row) => (
-        "10,40% / 60%"
-      ),
+      cell: (row) => "10,40% / 60%",
     },
     {
       name: "구매자 수",
       selector: (row) => `${row?.salePrice?.toLocaleString()}원`,
       right: true,
-      cell: (row) => (
-        "1,000명"
-      ),
+      cell: (row) => "1,000명",
     },
     {
       name: "판매 수량",
       selector: (row) => row?.stock,
       right: true,
-      cell: (row) => (
-        "1,0000개"
-      ),
+      cell: (row) => "1,0000개",
     },
     {
       name: "액션",
       selector: (row) => `${row?.shippingFee?.toLocaleString()}원`,
       center: true,
       cell: (row) => (
-        <Box sx={{ cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: 1 }}>
+        <Box
+          sx={{
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 1,
+          }}
+        >
           <span onClick={() => openModal(true)}>삭제 </span>
           <span>수정 </span>
         </Box>
@@ -314,9 +307,7 @@ const SpecialGroupList = () => {
           color="primary"
         />
       ),
-
     },
-
   ];
   const customStyles = {
     table: {
@@ -346,7 +337,9 @@ const SpecialGroupList = () => {
 
   return (
     <div className="container-fluid px-2 px-md-4">
-      <h4 className="text-center pt-3 pb-4 pb-md-5">특별 그룹 목록</h4>
+      <Typography variant="h4" fontWeight="bold" mb={4} align="left">
+        특별 그룹 목록
+      </Typography>
       <div className={classes.container}>
         <DataTable
           columns={columns}
@@ -416,7 +409,6 @@ const SpecialGroupList = () => {
           handleCloseModal={closeCreateModal}
           small
           width="500px"
-
         >
           <div className="p-3 p-md-4">
             <h5 className="text-center fw-bold mb-3 mb-md-4">특별 그룹 생성</h5>
@@ -499,7 +491,7 @@ const SpecialGroupList = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="pointRatio" className="form-label" >
+                <label htmlFor="pointRatio" className="form-label">
                   포인트 지급 분배 비율 입력(합산 100%)
                 </label>
 

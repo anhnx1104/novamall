@@ -65,7 +65,7 @@ const Dashboard = () => {
   return (
     <PageLoader url={`/api/dashboard`} setData={setData} ref={null}>
       <Box>
-        <Typography variant="h5" fontWeight="bold" mb={4} align="left">
+        <Typography variant="h4" fontWeight="bold" mb={4} align="left">
           대시보드
         </Typography>
 

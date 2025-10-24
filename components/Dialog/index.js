@@ -11,7 +11,13 @@ import {
   Box,
 } from "@mui/material";
 
-export default function DeleteGroupDialog({ title = "", subs = "", open, onClose, onConfirm }) {
+export default function DeleteGroupDialog({
+  title = "",
+  subs = "",
+  open,
+  onClose,
+  onConfirm,
+}) {
   return (
     <Dialog
       open={open}

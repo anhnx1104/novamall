@@ -8,8 +8,8 @@ import useSWR from "swr";
 import classes from "~/components/tableFilter/table.module.css";
 import { cpf, deleteData, fetchData, updateData } from "~/lib/clientFunctions";
 import { formatNumberWithCommaAndFloor } from "~/utils/number";
-import Checkbox from '@mui/material/Checkbox';
-import { Button } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
+import { Button, Typography } from "@mui/material";
 const DataTable = dynamic(() => import("react-data-table-component"));
 const FilterComponent = dynamic(() => import("~/components/tableFilter"));
 const GlobalModal = dynamic(() => import("~/components/Ui/Modal/modal"));
@@ -89,11 +89,12 @@ const ProductList = () => {
     );
   }, [filterText, resetPaginationToggle]);
   const [selectedRows, setSelectedRows] = useState([]);
-  const allChecked = selectedRows.length === data?.product?.length && data?.product?.length > 0;
-  const someChecked = selectedRows.length > 0 && selectedRows.length < data?.product?.length;
+  const allChecked =
+    selectedRows.length === data?.product?.length && data?.product?.length > 0;
+  const someChecked =
+    selectedRows.length > 0 && selectedRows.length < data?.product?.length;
 
   const handleSelectAll = (checked) => {
-
     if (checked) setSelectedRows(data?.product?.map((item) => item._id));
     else setSelectedRows([]);
   };
@@ -128,9 +129,7 @@ const ProductList = () => {
       name: "상품 코드",
       selector: (row) => row?.productId,
       sortable: true,
-      cell: (row) => (
-        "k2139ds123"
-      ),
+      cell: (row) => "k2139ds123",
     },
     {
       name: "대표 이미지",
@@ -142,67 +141,51 @@ const ProductList = () => {
           height={80}
         />
       ),
-      cell: (row) => (
-        "이미지"
-      ),
+      cell: (row) => "이미지",
     },
     {
       name: "이름",
       selector: (row) => row?.name,
       sortable: true,
-      cell: (row) => (
-        "상품 이름"
-      ),
+      cell: (row) => "상품 이름",
     },
     {
       name: "상품군",
       selector: (row) => row?.category,
-      cell: (row) => (
-        "의류"
-      ),
+      cell: (row) => "의류",
     },
 
     {
       name: "공급가",
       selector: (row) => `${row?.supplyPrice?.toLocaleString()}원`,
       right: true,
-      cell: (row) => (
-        "10,000원"
-      ),
+      cell: (row) => "10,000원",
     },
 
     {
       name: "판매가",
       selector: (row) => `${row?.salePrice?.toLocaleString()}원`,
       right: true,
-      cell: (row) => (
-        "15,000원"
-      ),
+      cell: (row) => "15,000원",
     },
 
     {
       name: "재고",
       selector: (row) => row?.stock,
       right: true,
-      cell: (row) => (
-        "999"
-      ),
+      cell: (row) => "999",
     },
 
     {
       name: "배송비",
       selector: (row) => `${row?.shippingFee?.toLocaleString()}원`,
       right: true,
-      cell: (row) => (
-        "5,000원"
-      ),
+      cell: (row) => "5,000원",
     },
     {
       name: "판매 상태",
       selector: (row) => row?.status,
-      cell: (row) => (
-        "판매중"
-      ),
+      cell: (row) => "판매중",
     },
     {
       name: "액션",
@@ -214,7 +197,6 @@ const ProductList = () => {
       button: true,
     },
   ];
-
 
   const customStyles = {
     rows: {
@@ -238,7 +220,9 @@ const ProductList = () => {
         <Spinner />
       ) : (
         <div>
-          <h4 className="text-center pt-3 pb-5">일반상품 목록</h4>
+          <Typography variant="h4" fontWeight="bold" mb={4} align="left">
+            일반상품 목록
+          </Typography>
           <div className={classes.container}>
             <DataTable
               columns={columns}
@@ -260,17 +244,31 @@ const ProductList = () => {
                 style={{
                   borderRadius: "12px",
                   padding: "24px",
-                  width: "360px",
                   textAlign: "left",
                 }}
               >
-                <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 600 }}>동기화</h3>
-                <p style={{ color: "#555", marginTop: "8px", marginBottom: "20px" }}>
+                <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 600 }}>
+                  동기화
+                </h3>
+                <p
+                  style={{
+                    color: "#555",
+                    marginTop: "8px",
+                    marginBottom: "20px",
+                  }}
+                >
                   도매몰의 상품과 동기화 하시겠습니까?
                 </p>
 
-                <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", paddingRight: "8px" }}>
-                  <button
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    gap: "8px",
+                    paddingRight: "8px",
+                  }}
+                >
+                  <Button
                     onClick={() => deleteProduct()}
                     style={{
                       padding: "8px 16px",
@@ -283,8 +281,8 @@ const ProductList = () => {
                     }}
                   >
                     확인
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => closeModal()}
                     style={{
                       padding: "8px 16px",
@@ -297,11 +295,9 @@ const ProductList = () => {
                     }}
                   >
                     취소
-                  </button>
-
+                  </Button>
                 </div>
               </div>
-
             </GlobalModal>
           </div>
         </div>
