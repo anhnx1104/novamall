@@ -1,10 +1,10 @@
 import dynamic from "next/dynamic";
-const ProductForm = dynamic(() =>
-  import("~/components/ProductForm/productForm")
+const ProductFormCreate = dynamic(() =>
+  import("~/components/ProductForm/productFormCreate")
 );
 
 const NewProduct = () => {
-  return <ProductForm />;
+  return <ProductFormCreate />;
 };
 
 NewProduct.requireAuthAdmin = true;

@@ -19,6 +19,7 @@
     "@aws-sdk/client-s3": "^3.303.0",
     "@aws-sdk/s3-request-presigner": "^3.303.0",
     "@iconify/react": "^5.2.1",
+    "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
     "@next-auth/mongodb-adapter": "^1.1.1",
     "@next/bundle-analyzer": "^13.4.12",
